@@ -6,7 +6,7 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue)
 
-🚀 **[Live Demo](https://karlrobeck.github.io/porfolio-generator/)** - Try it out right now!
+🚀 **[Live Demo](https://karlrobeck.github.io/resume-generator/)** - Try it out right now!
 
 ## Features
 
@@ -28,6 +28,10 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 📊 **Live Statistics** - Word and character count displayed in real-time
 
 🔄 **Smart Markdown Parser** - Intelligent parsing that auto-detects email, phone, and social media links
+
+🌓 **Theme Switcher** - Toggle between Light, Dark, and System-preference themes with a elegant dropdown menu
+
+📱 **Mobile Responsive** - Fully responsive design with optimized layouts for all screen sizes. Mobile mode features tab-based navigation for editor and preview panels
 
 ## Tech Stack
 
@@ -70,13 +74,17 @@ bun run dev
 
 ## Usage
 
-1. **Edit Resume**: Use the left panel markdown editor to write your resume content
-2. **Select Style**: Choose a resume format from the dropdown at the top of the preview
-3. **Preview**: View your formatted resume in the Preview tab
-4. **Export**:
+1. **Toggle Theme**: Click the theme switcher button in the header to choose between Light, Dark, or System theme preference
+2. **Edit Resume**: Use the left panel markdown editor (desktop) or Editor tab (mobile) to write your resume content
+3. **Select Style**: Choose a resume format from the dropdown at the top of the preview
+4. **Preview**: View your formatted resume in the Preview tab
+5. **Export**:
    - Click "Print to PDF" to print or save as PDF
    - Click "Download HTML" to save as an HTML file
-5. **View Source**: Check the HTML or Source tabs to see the generated code
+6. **View Source**: Check the HTML or Source tabs to see the generated code
+
+**Desktop Layout**: Side-by-side resizable panels for editor and preview  
+**Mobile Layout**: Tab-based interface with Editor and Preview tabs for optimal mobile experience
 
 ## Resume Markdown Format
 
@@ -127,12 +135,19 @@ Brief description of the project and your role.
 src/
 ├── components/
 │   ├── ui/
+│   │   ├── badge.tsx
 │   │   ├── button.tsx
 │   │   ├── card.tsx
+│   │   ├── dropdown-menu.tsx  # Theme switcher dropdown
+│   │   ├── resizable.tsx
 │   │   ├── select.tsx
 │   │   ├── separator.tsx
 │   │   └── tabs.tsx
-│   └── resume-renderer.tsx     # Resume output renderer
+│   ├── resume-renderer.tsx     # Resume output renderer
+│   ├── theme-provider.tsx      # Theme context provider
+│   └── theme-switcher.tsx      # Theme toggle component
+├── hooks/
+│   └── use-mobile.tsx          # Mobile detection hook
 ├── lib/
 │   ├── resume-parser.ts        # Markdown to AST converter
 │   ├── resume-styles.ts        # Theme configurations
