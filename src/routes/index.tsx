@@ -1,13 +1,11 @@
-import Editor from "@monaco-editor/react";
+import { lazy, useMemo, useState, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, FileText, Minimize2, Sparkles, Zap } from "lucide-react";
-import { useMemo, useState } from "react";
 import showdown from "showdown";
 import { ResumeRenderer } from "@/components/resume-renderer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-	ResizableHandle,
+  ResizableHandle,
 	ResizablePanel,
 	ResizablePanelGroup,
 } from "@/components/ui/resizable";
@@ -23,6 +21,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { parseResumeMarkdown } from "@/lib/resume-parser";
 import type { ResumeStyle } from "@/lib/resume-styles";
 import { SAMPLE_RESUME } from "@/lib/sample-resume";
+
+const Editor = lazy(() => import("@monaco-editor/react"));
+const FileText = lazy(() => import("lucide-react").then((m) => ({ default: m.FileText })));
+const Zap = lazy(() => import("lucide-react").then((m) => ({ default: m.Zap })));
+const Minimize2 = lazy(() => import("lucide-react").then((m) => ({ default: m.Minimize2 })));
+const Award = lazy(() => import("lucide-react").then((m) => ({ default: m.Award })));
+const Sparkles = lazy(() => import("lucide-react").then((m) => ({ default: m.Sparkles })));
 
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
@@ -166,36 +171,38 @@ function RouteComponent() {
 								<SelectValue placeholder="Select style" />
 							</SelectTrigger>
 							<SelectContent>
-								<SelectItem value="classic">
-									<div className="flex items-center gap-2">
-										<FileText className="w-4 h-4" />
-										<span>Classic</span>
-									</div>
-								</SelectItem>
-								<SelectItem value="modern">
-									<div className="flex items-center gap-2">
-										<Zap className="w-4 h-4" />
-										<span>Modern</span>
-									</div>
-								</SelectItem>
-								<SelectItem value="minimal">
-									<div className="flex items-center gap-2">
-										<Minimize2 className="w-4 h-4" />
-										<span>Minimal</span>
-									</div>
-								</SelectItem>
-								<SelectItem value="professional">
-									<div className="flex items-center gap-2">
-										<Award className="w-4 h-4" />
-										<span>Professional</span>
-									</div>
-								</SelectItem>
-								<SelectItem value="creative">
-									<div className="flex items-center gap-2">
-										<Sparkles className="w-4 h-4" />
-										<span>Creative</span>
-									</div>
-								</SelectItem>
+								<Suspense fallback={null}>
+									<SelectItem value="classic">
+										<div className="flex items-center gap-2">
+											<FileText className="w-4 h-4" />
+											<span>Classic</span>
+										</div>
+									</SelectItem>
+									<SelectItem value="modern">
+										<div className="flex items-center gap-2">
+											<Zap className="w-4 h-4" />
+											<span>Modern</span>
+										</div>
+									</SelectItem>
+									<SelectItem value="minimal">
+										<div className="flex items-center gap-2">
+											<Minimize2 className="w-4 h-4" />
+											<span>Minimal</span>
+										</div>
+									</SelectItem>
+									<SelectItem value="professional">
+										<div className="flex items-center gap-2">
+											<Award className="w-4 h-4" />
+											<span>Professional</span>
+										</div>
+									</SelectItem>
+									<SelectItem value="creative">
+										<div className="flex items-center gap-2">
+											<Sparkles className="w-4 h-4" />
+											<span>Creative</span>
+										</div>
+									</SelectItem>
+								</Suspense>
 							</SelectContent>
 						</Select>
 						<div className="p-4 bg-gray-50 flex flex-col gap-2">
