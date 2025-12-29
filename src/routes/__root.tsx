@@ -1,5 +1,7 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Button } from "@/components/ui/button";
+import packageMetadata from "../../package.json" with {type:"json"}
 
 export const Route = createRootRoute({
 	component: RootComponent,
@@ -17,8 +19,11 @@ function RootComponent() {
 							Build professional resumes with precision formatting
 						</p>
 					</div>
-					<div className="text-sm text-muted-foreground">
-						<span className="font-medium">v1.0.0</span>
+					<div className="flex items-center gap-4">
+						<ThemeSwitcher />
+						<div className="text-sm text-muted-foreground">
+							<span className="font-medium">v{packageMetadata.version}</span>
+						</div>
 					</div>
 				</div>
 			</header>
