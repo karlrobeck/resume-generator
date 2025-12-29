@@ -8,11 +8,11 @@ import { defineConfig } from "vite";
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
-		react(),
 		tanstackRouter({
 			target: "react",
 			autoCodeSplitting: true,
 		}),
+		react(),
 	],
 	base: "/resume-generator/",
 	resolve: {

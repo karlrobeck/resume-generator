@@ -7,6 +7,11 @@ import { ResumeRenderer } from "@/components/resume-renderer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+	ResizableHandle,
+	ResizablePanel,
+	ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import {
 	Select,
 	SelectContent,
 	SelectItem,
@@ -80,9 +85,9 @@ function RouteComponent() {
 	};
 
 	return (
-		<div className="flex h-full w-full bg-background text-foreground">
-			{/* Left Panel - Editor */}
-			<div className="flex-1 flex flex-col overflow-hidden">
+		<ResizablePanelGroup className="flex h-full w-full bg-background text-foreground">
+			<ResizablePanel className="flex-1 flex flex-col overflow-hidden">
+				{/* Left Panel - Editor */}
 				<div className="px-4 py-3">
 					<div className="flex items-center justify-between gap-4">
 						<div>
@@ -129,13 +134,11 @@ function RouteComponent() {
 						Clear Content
 					</Button>
 				</div>
-			</div>
-
+			</ResizablePanel>
 			{/* Vertical Separator */}
-			<Separator orientation="vertical" />
-
-			{/* Right Panel - Preview */}
-			<div className="flex-1 flex flex-col overflow-hidden">
+			<ResizableHandle />
+			<ResizablePanel className="flex-1 flex flex-col overflow-hidden">
+				{/* Right Panel - Preview */}
 				<div className="px-4 py-3">
 					<h1 className="text-sm font-semibold">HTML Preview</h1>
 				</div>
@@ -220,7 +223,6 @@ function RouteComponent() {
 						</pre>
 					</TabsContent>
 				</Tabs>
-
 				<Separator />
 				<div className="p-3 flex gap-2">
 					<Button
@@ -238,7 +240,7 @@ function RouteComponent() {
 						Download HTML
 					</Button>
 				</div>
-			</div>
-		</div>
+			</ResizablePanel>
+		</ResizablePanelGroup>
 	);
 }
