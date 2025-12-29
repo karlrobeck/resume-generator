@@ -143,7 +143,6 @@ function RouteComponent() {
 					<h1 className="text-sm font-semibold">HTML Preview</h1>
 				</div>
 				<Separator />
-
 				<Tabs
 					defaultValue="preview"
 					className="flex-1 flex flex-col overflow-hidden"
@@ -152,9 +151,6 @@ function RouteComponent() {
 						<TabsList className="bg-transparent border-b border-border h-8">
 							<TabsTrigger value="preview" className="text-xs h-7">
 								Resume
-							</TabsTrigger>
-							<TabsTrigger value="html" className="text-xs h-7">
-								HTML
 							</TabsTrigger>
 							<TabsTrigger value="source" className="text-xs h-7">
 								Source
@@ -208,19 +204,23 @@ function RouteComponent() {
 							</div>
 						</div>
 					</TabsContent>
-
-					<TabsContent value="html" className="flex-1 overflow-auto">
-						<div className="p-4">
-							<pre className="text-xs overflow-auto">
-								<code className="text-foreground">{htmlContent}</code>
-							</pre>
-						</div>
-					</TabsContent>
-
 					<TabsContent value="source" className="flex-1 overflow-auto">
-						<pre className="p-4 text-xs overflow-auto">
-							<code className="text-foreground">{htmlContent}</code>
-						</pre>
+						<Editor
+							height="100%"
+							language="html"
+							value={htmlContent}
+							theme="vs-dark"
+							options={{
+								readOnly: true,
+								minimap: { enabled: false },
+								fontSize: 14,
+								lineHeight: 1.6,
+								wordWrap: "on",
+								scrollBeyondLastLine: false,
+								formatOnPaste: false,
+								formatOnType: false,
+							}}
+						/>
 					</TabsContent>
 				</Tabs>
 				<Separator />
