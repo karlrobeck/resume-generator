@@ -6,6 +6,8 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue)
 
+🚀 **[Live Demo](https://karlrobeck.github.io/porfolio-generator/)** - Try it out right now!
+
 ## Features
 
 ✨ **Multiple Resume Styles** - Choose from 5 professionally designed formats:
@@ -31,9 +33,10 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 
 - **React 19** - Modern UI framework
 - **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool
 - **TanStack React Router** - Client-side routing
 - **Monaco Editor** - Professional code editor
-- **Tailwind CSS** - Utility-first styling
+- **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **Shadcn UI** - High-quality React components
 - **Lucide React** - Beautiful icon library
 - **Showdown** - Markdown to HTML conversion
@@ -170,14 +173,17 @@ Centralized theme configuration with 5 complete style definitions. Each style in
 ## Available Scripts
 
 ```bash
-# Development server
+# Development server with hot reload
 bun run dev
 
 # Generate routes
 bun run generate-routes
 
-# Build for production
+# Build for production (Vite)
 bun run build
+
+# Preview production build
+bun run preview
 ```
 
 ## Contributing
