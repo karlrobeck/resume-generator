@@ -1,6 +1,8 @@
 /// <reference lib="webworker" />
-
 declare const self: ServiceWorkerGlobalScope;
+
+// Workbox manifest injection point - DO NOT REMOVE
+const manifest = (self as any).__WB_MANIFEST || [];
 
 // Handle install event
 self.addEventListener("install", (event: ExtendableEvent) => {
@@ -67,3 +69,4 @@ self.addEventListener("fetch", (event: FetchEvent) => {
       .catch(() => new Response("Offline"))
   );
 });
+
