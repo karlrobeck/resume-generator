@@ -1,18 +1,23 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { routeTree } from "./routeTree.gen";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { Router, RouterProvider, createMemoryHistory, createRouter } from "@tanstack/react-router";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const elem = document.getElementById("root")!;
 
-const router = createRouter({
+const memoryHistory = createMemoryHistory({
+  initialEntries: ['/'],
+})
+
+const router = new Router({
   routeTree,
   Wrap: ({ children }) => (
     <ThemeProvider defaultTheme="dark" storageKey="shadcn-ui-theme">
       {children}
     </ThemeProvider>
   ),
+  history:memoryHistory
 });
 
 declare module "@tanstack/react-router" {

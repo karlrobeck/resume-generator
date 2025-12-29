@@ -40,11 +40,13 @@ function RootComponent() {
             </div>
             <div className="flex items-center gap-2">
               <span>Made by</span>
-              <Button asChild>
+              <Button asChild variant={"link"} className='p-0'>
                 <a href='https://github.com/karlrobeck' className="font-medium">Karl Robeck Alferez</a>
               </Button>
               <span>•</span>
-              <span className="font-medium">MIT License</span>
+              <Button asChild variant={"link"} className='p-0'>
+                <a href='https://github.com/karlrobeck/porfolio-generator?tab=MIT-1-ov-file' className="font-medium">MIT License</a>
+              </Button>
             </div>
           </div>
         </footer>
