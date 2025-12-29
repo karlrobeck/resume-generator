@@ -1,16 +1,23 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { routeTree } from './routeTree.gen'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import { ThemeProvider } from "@/components/theme-provider"
+import { routeTree } from "./routeTree.gen";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const elem = document.getElementById("root")!;
 
-const router = createRouter({ routeTree,Wrap:({children}) => (<ThemeProvider defaultTheme="dark" storageKey="shadcn-ui-theme">{children}</ThemeProvider>) })
+const router = createRouter({
+  routeTree,
+  Wrap: ({ children }) => (
+    <ThemeProvider defaultTheme="dark" storageKey="shadcn-ui-theme">
+      {children}
+    </ThemeProvider>
+  ),
+});
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router
+    router: typeof router;
   }
 }
 
