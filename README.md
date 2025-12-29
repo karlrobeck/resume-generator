@@ -33,6 +33,8 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 
 📱 **Mobile Responsive** - Fully responsive design with optimized layouts for all screen sizes. Mobile mode features tab-based navigation for editor and preview panels
 
+📲 **Progressive Web App (PWA)** - Install as a native app on any device with offline support, automatic updates, and seamless installation experience
+
 ## Tech Stack
 
 - **React 19** - Modern UI framework
@@ -44,6 +46,8 @@ Build professional resumes with precision formatting. A modern, feature-rich res
 - **Shadcn UI** - High-quality React components
 - **Lucide React** - Beautiful icon library
 - **Showdown** - Markdown to HTML conversion
+- **Vite Plugin PWA** - Progressive Web App support with service workers
+- **Sharp** - Image processing for PWA icons
 - **Bun** - Fast JavaScript runtime
 
 ## Getting Started
@@ -85,6 +89,33 @@ bun run dev
 
 **Desktop Layout**: Side-by-side resizable panels for editor and preview  
 **Mobile Layout**: Tab-based interface with Editor and Preview tabs for optimal mobile experience
+
+## Progressive Web App (PWA)
+
+This application is fully configured as a Progressive Web App, enabling you to:
+
+- **Install Locally** - Add Resume Builder to your home screen on any device
+- **Work Offline** - Continue editing and viewing resumes without internet connection
+- **Fast Loading** - Service worker caches assets for instant app startup
+- **Auto Updates** - Automatically fetches new versions in the background
+- **Native Feel** - Runs as a standalone app without browser UI chrome
+
+### Installing the App
+
+**Desktop (Chrome/Edge/Firefox):**
+1. Visit the live demo URL
+2. Look for "Install" button in the address bar or menu
+3. Click to install as a desktop app
+
+**Mobile (Android):**
+1. Open the site in your browser
+2. Tap the menu and select "Install app" or "Add to Home Screen"
+3. Launch from your home screen
+
+**iOS/macOS:**
+1. Open the site in Safari
+2. Tap the Share button
+3. Select "Add to Home Screen"
 
 ## Resume Markdown Format
 
