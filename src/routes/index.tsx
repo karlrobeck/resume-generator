@@ -1,5 +1,5 @@
-import { lazy, useMemo, useState, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useMemo, useState } from "react";
 import showdown from "showdown";
 import { ResumeRenderer } from "@/components/resume-renderer";
 import { Badge } from "@/components/ui/badge";
